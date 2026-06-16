@@ -37,18 +37,18 @@ pipeline {
 
         stage('Docker Push') {
             steps {
-                sh 'docker push $IMAGE_NAME'
+                sh '/usr/local/bin/docker push $IMAGE_NAME'
             }
         }
 
         stage('Deploy') {
             steps {
                 sh '''
-                docker rm -f $CONTAINER_NAME || true
-                docker pull $IMAGE_NAME
-                docker compose down || true
-                docker compose pull
-                docker compose up -d
+                /usr/local/bin/docker rm -f $CONTAINER_NAME || true
+                /usr/local/bin/docker pull $IMAGE_NAME
+                /usr/local/bin/docker compose down || true
+                /usr/local/bin/docker compose pull
+                /usr/local/bin/docker compose up -d
                 '''
             }
         }
