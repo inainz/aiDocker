@@ -57,8 +57,8 @@ pipeline {
             steps {
                 sh '''
                 sleep 5
-                curl http://localhost:8008
-                curl "http://localhost:8008/predict?value=1.5"
+                curl http://localhost:8000
+                curl "http://localhost:8000/predict?value=1.5"
                 '''
             }
         }
